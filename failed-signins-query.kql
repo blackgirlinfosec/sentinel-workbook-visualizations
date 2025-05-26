@@ -1,0 +1,4 @@
+SigninLogs
+| where ResultType != 0
+| summarize Count = count() by bin(TimeGenerated, 1h)
+| render timechart

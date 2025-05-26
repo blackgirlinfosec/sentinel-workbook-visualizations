@@ -1,0 +1,5 @@
+SigninLogs
+| where ResultType != 0
+| where TimeGenerated > ago(1d)
+| summarize FailedAttempts = count() by Location
+| sort by FailedAttempts desc
